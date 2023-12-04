@@ -10,13 +10,10 @@ export default {
     AppFilm
   },
 
-
   data() {
-
     return {
       search: "",
     }
-
   },
 
   mounted() {
@@ -25,21 +22,21 @@ export default {
 
   methods: {
     getSearch() {
-      axios.get('d2c87a340967a34eddbd93b646618b50').then(risultato => {
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix').then(risultato => {
         this.search = risultato.data
+        console.log(this.search)
       })
 
+    },
+    getAppFilm() {
+      this.search = ""
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
+        this.search = risultato.data
+        console.log(this.search)
+      })
     }
   },
 
-  getAppFilm() {
-    this.search = ""
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
-      this.search = risultato.data
-    })
-
-
-  }
 }
 
 </script>
