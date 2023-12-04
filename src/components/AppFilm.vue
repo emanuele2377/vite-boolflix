@@ -8,7 +8,7 @@ export default {
 
 <template>
     <div class="container">
-
+        <div v-for="elemento in arrayGenerato"></div>
 
     </div>
 </template>
