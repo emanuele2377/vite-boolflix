@@ -33,8 +33,8 @@ export default {
   },
 
   getAppFilm() {
-    this.search = "https://api.themoviedb.org/3/search/movie"
-    axios.get(``).then(risultato => {
+    this.search = ""
+    axios.get(`https://api.themoviedb.org/3/search/movie`).then(risultato => {
       this.search = risultato.data
     })
 
