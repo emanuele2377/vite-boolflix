@@ -10,7 +10,9 @@ export default {
 <template>
     <div class="container">
         <div v-for="elemento in arrayGenerato"></div>
-
+        <span>
+            {{ elemento.title }}
+        </span>
     </div>
 </template>
 
