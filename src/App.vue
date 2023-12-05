@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       search: "",
+
     }
   },
 
@@ -24,7 +25,7 @@ export default {
   methods: {
     getSearch() {
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix').then(risultato => {
-        this.search = risultato.data
+        this.search = risultato.data.results
         console.log(this.search)
       })
 
@@ -32,7 +33,8 @@ export default {
     getAppFilm() {
       this.search = ""
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`,).then(risultato => {
-        this.search = risultato.data
+        this.search = risultato.data.results
+        this.search.push(risultato.data.results)
         console.log(this.search)
       })
     }
