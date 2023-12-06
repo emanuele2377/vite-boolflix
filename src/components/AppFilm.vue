@@ -2,7 +2,6 @@
 
 export default {
     props: ["arrayGenerato"]
-
 }
 
 </script>
@@ -10,10 +9,9 @@ export default {
 <template>
     <div class="container">
         <div v-for="elemento in arrayGenerato">
-            <span>{{ elemento.original_title }} </span>
-            <span>{{ elemento.original_language }} </span>
+            <div>{{ elemento.original_title }} </div>
+            <div>{{ elemento.original_language }} </div>
         </div>
-
     </div>
 </template>
 

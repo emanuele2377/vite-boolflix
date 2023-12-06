@@ -8,7 +8,8 @@ import { pushScopeId } from 'vue';
 export default {
   components: {
     AppSearch,
-    AppFilm
+    AppFilm,
+
   },
 
   data() {
@@ -24,7 +25,7 @@ export default {
 
   methods: {
     getSearch() {
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix').then(risultato => {
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix', `https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
         this.search = risultato.data.results
         console.log(this.search)
       })
@@ -32,7 +33,7 @@ export default {
     },
     getAppFilm() {
       this.search = ""
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`,).then(risultato => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`, `https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
         this.search = risultato.data.results
         console.log(this.search)
       })
@@ -47,7 +48,7 @@ export default {
     <AppSearch @search="getAppFilm" />
   </header>
   <main>
-    <AppFilm :arrayGenerato="getSearch" />
+    <AppFilm :arrayGenerato="this.search" />
   </main>
 </template>
 
