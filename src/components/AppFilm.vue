@@ -9,7 +9,7 @@ export default {
 
 <template>
     <div class="container">
-        <div v-for="(elemento, i) in arrayGenerato" :key="i">
+        <div v-for="elemento in arrayGenerato">
             <span>{{ elemento.original_title }} </span>
             <span>{{ elemento.original_language }} </span>
         </div>
