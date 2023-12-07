@@ -9,13 +9,11 @@ export default {
   components: {
     AppSearch,
     AppFilm,
-
   },
 
   data() {
     return {
       search: "",
-
     }
   },
 
@@ -25,7 +23,14 @@ export default {
 
   methods: {
     getSearch() {
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix', `https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix').then(risultato => {
+        this.search = risultato.data.results
+        console.log(this.search)
+      })
+
+    },
+    getSearch() {
+      axios.get('https://api.themoviedb.org/3/search/tv?api_key=d2c87a340967a34eddbd93b646618b50&query=dr.house').then(risultato => {
         this.search = risultato.data.results
         console.log(this.search)
       })
@@ -33,7 +38,15 @@ export default {
     },
     getAppFilm() {
       this.search = ""
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`, `https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d2c87a340967a34eddbd93b646618b50&query=matrix`).then(risultato => {
+        this.search = risultato.data.results
+        console.log(this.search)
+      })
+    },
+
+    getAppSerie() {
+      this.search = ""
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=d2c87a340967a34eddbd93b646618b50&query=dr.house`).then(risultato => {
         this.search = risultato.data.results
         console.log(this.search)
       })
@@ -45,7 +58,7 @@ export default {
 </script>
 <template>
   <header>
-    <AppSearch @search="getAppFilm" />
+    <AppSearch @search="getAppFilm(); getAppSerie()" />
   </header>
   <main>
     <AppFilm :arrayGenerato="this.search" />
