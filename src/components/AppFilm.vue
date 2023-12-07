@@ -1,9 +1,16 @@
 <script>
 
 export default {
-    props: ["arrayGenerato"]
-}
+    props: ["arrayGenerato"],
+    languageImage: [
+        "it.jpg",
+        "en.jpg",
+        "ja.jpg",
+        "fr.jpg",
+        "ko.jpg",
+    ],
 
+}
 </script>
 
 <template>
@@ -11,7 +18,10 @@ export default {
     <div class="containerCard">
         <div v-for="elemento in arrayGenerato">
             <div class="card">
-                <div><img src="https://image.tmdb.org/t/p/w500/.png" alt=""></div>
+                <div><img
+                        src='https://image.tmdb.org/t/p/w500/images?api_key=d2c87a340967a34eddbd93b646618b50&query=${store.searchString}'
+                        alt="">
+                </div>
                 <div> titolo: {{ elemento.original_title }} </div>
                 <div>{{ elemento.name }} </div>
                 <div>lingua: {{ elemento.original_language }} </div>
