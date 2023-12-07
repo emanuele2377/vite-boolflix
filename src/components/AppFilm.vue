@@ -11,9 +11,7 @@ export default {
     <div class="containerCard">
         <div v-for="elemento in arrayGenerato">
             <div class="card">
-                <div><img
-                        src="https://api.themoviedb.org/3/person/{person_id}/images?api_key=d2c87a340967a34eddbd93b646618b50&query=${store.searchString}"
-                        alt=""></div>
+                <div><img src="https://image.tmdb.org/t/p/w500/.png" alt=""></div>
                 <div> titolo: {{ elemento.original_title }} </div>
                 <div>{{ elemento.name }} </div>
                 <div>lingua: {{ elemento.original_language }} </div>
